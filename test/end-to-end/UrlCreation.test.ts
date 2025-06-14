@@ -1,3 +1,4 @@
+/* eslint-disable newline-per-chained-call */
 import { ClientFunction, Selector } from 'testcafe'
 import * as fs from 'fs'
 import { fetch } from 'cross-fetch'
@@ -220,8 +221,11 @@ test('The URL searching test.', async (t) => {
     .typeText(searchBarLinksInput, 'search')
     .wait(1000)
     // Searching on the user page search bar shows links that are relevant to the search term.
-    // eslint-disable-next-line
-    .expect(resultTable.child('tbody').child(0).child(1).child(0).child(0).child('h6').innerText,)
+    // eslint-disable-next-line newline-per-chained-call
+    .expect(
+      resultTable.child('tbody').child(0).child(1).child(0).child(0).child('h6')
+        .innerText,
+    )
     .eql(`/${generatedUrlActive}-search`)
 
   await t
@@ -237,8 +241,11 @@ test('The URL searching test.', async (t) => {
     .typeText(searchBarTagsInput, randomTagText)
     .wait(3000)
     // Searching by tags on the user page search bar shows links that are relevant to the search term.
-    // eslint-disable-next-line
-    .expect(resultTable.child('tbody').child(0).child(1).child(0).child(0).child('h6').innerText)
+    // eslint-disable-next-line newline-per-chained-call
+    .expect(
+      resultTable.child('tbody').child(0).child(1).child(0).child(0).child('h6')
+        .innerText,
+    )
     .eql(`/${generatedUrlActive}-search`)
 })
 
